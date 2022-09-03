@@ -1,8 +1,3 @@
-```
-docker run <image>:<version>
-docker run postgres:10.10
-docker ps
-```
 ## Docker Image
 * A docker image itself is a layer of images 
     * Starting from the base layer (OS) to the application layer
@@ -17,7 +12,7 @@ docker ps
 ![](img/dockervsvm.png)
 ## Why Docker
 * When you build an application, it will have many dependencies. We package all these dependencies along with the application and create something called a docker image. This docker image can be pulled from other machines from a docker repository and containers can be started
-* So, if you had to do it manually, you would have to go ahead and install every dependency and configure it for your application you plan to run on every machine
+* So, if you had to do it manually, you would have to go ahead and install every dependency and configure it for your application you plan to run on every machine. But now you just have to pull your docker image from a repository and launch your containers. BOOM! JOB DONE!
 
 ![](img/workflow.png)   
 
@@ -32,7 +27,7 @@ And similarly, for the other version
 ```
 docker run -p3001:3306 mysql:5"
 ```
-* So, now the requests are received in ports 3000 and 3001 in your host machine and forwards those requests to port 3306 of different running MySQL
+* So, now the requests are received in ports 3000 and 3001 in your host machine and forwards those requests to port 3306 of different containers running MySQL
 
 ![](img/ports.png)
 > Conflicts arise when we try to use the same port on the host machine for different services
@@ -69,7 +64,7 @@ docker-compose -f mongo.yaml up -d
 docker-compose -f mongo.yaml down
 ```
 ## Dockerfile
-* **Dockerfile** is used to build images. _Dockerfile_ contains the steps tp build the image
+* **Dockerfile** is used to build images. _Dockerfile_ contains the steps to build the image
 * Here's a sample _Dockerfile_
 ```dockerfile
 FROM node:latest
