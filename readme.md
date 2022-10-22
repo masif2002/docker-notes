@@ -39,20 +39,20 @@ docker run -p3001:3306 mysql:5"
     # mongo.yaml
     version: 3 
     services:
-    service1: # Any name 
-        image: mongo
-        ports:
-         - 25721:25721
-        environment:
-         - ROOT_USERNAME=admin
-         - ROOT_PASSWORD=password
-    service2:
-        image: mongo-express
-        ports:
-         - 8080:8081
-        environment: 
-         - ROOT_USERNAME_MONGOEXP=admin
-         - ROOT_PASSWORD_MONGOEXP=password
+        service1: # Any name 
+            image: mongo
+            ports:
+            - 25721:25721
+            environment:
+            - ROOT_USERNAME=admin
+            - ROOT_PASSWORD=password
+        service2:
+            image: mongo-express
+            ports:
+            - 8080:8081
+            environment: 
+            - ROOT_USERNAME_MONGOEXP=admin
+            - ROOT_PASSWORD_MONGOEXP=password
     ```
 * Then, we use the `docker-compose` commands to start and stop the containers
 ```
@@ -83,7 +83,8 @@ CMD ["node", "server.js"]
 * `RUN` is used to run commands inside the container
 * `COPY` is used to copy the contents from the host machine to the container
 * `CMD` is used to run one single command which is the entrypoint for starting the application inside the container 
-
+___
+* After this you need to use the `docker build` command to build the image from the Dockerfile 
 ## Docker Volumes
 * Data is lost by default when a container is stopped. If you want your data to be persistent, you need to make use of _docker volumes_
 * Docker volumes actually mean connecting your physical file system (Host file system) to your Virtual file system (container file system) 
@@ -181,9 +182,12 @@ ___
 docker build -t <name:tag> <path_to_Dockerfile>
 ```
 * Builds docker image from Dockerfile
+* `--no-cache` flag is available
 ___
 ```
 docker tag <image:tag> <new_image_name:tag>
 ```
 * Renames the Dockerfile (It actually creates a copy of the image with the new name)
 ___
+
+docker pull 716927497993.dkr.ecr.us-east-1.amazonaws.com/asif:0.6;
