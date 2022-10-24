@@ -1,3 +1,6 @@
+# Docker Notes
+* Notes on Docker
+> Reference: https://www.youtube.com/watch?v=3c-iBn73dDE
 ## Docker Image
 * A docker image itself is a layer of images 
     * Starting from the base layer (OS) to the application layer
@@ -189,5 +192,3 @@ docker tag <image:tag> <new_image_name:tag>
 ```
 * Renames the Dockerfile (It actually creates a copy of the image with the new name)
 ___
-
-docker pull 716927497993.dkr.ecr.us-east-1.amazonaws.com/asif:0.6;
